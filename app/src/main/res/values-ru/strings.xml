@@ -3,4 +3,17 @@
     <string name="town1">Красноярск</string>
     <string name="staticTown">Город</string>
     <string name="temp1">+10</string>
+    <string name="textWeather">Замечено: погода не бывает плохой во время теплой солнечной весны. Или летом по утрам, до жары. Или осенью, когда нет ветра, а листопад есть. Про прелести зимнего периода как-то легче говорить в теплые и жаркие времена, а не перед крещенскими морозами после убойно минусовых новогодних каникул. И зависимость от прогноза погоды уже никто не отрицает, и каждый раз хочется узнать его не только на ближайший период.</string>
+    <string name="InterestingWeather">Интересное о погоде:</string>
+    <string name="town2">Москва</string>
+    <string name="temp2">+20</string>
+    <string name="nameWeather">Погода:</string>
+    <string name="editTown">Изменить город:</string>
+    <string name="showAddParameters">Показывать:</string>
+    <string name="windSpeed">Скорость ветра</string>
+    <string name="namePressure">Давление</string>
+    <string name="nameEdit">Изменить</string>
+    <string name="nameBack">Назад</string>
+    <string name="nameChoiceTheTown">Выберите город:</string>
+    <string name="nameCustomization">Настройка</string>
 </resources>
