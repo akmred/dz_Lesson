@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        blackTheme = (Switch) findViewById(R.id.idBlackTheme);
+        blackTheme = findViewById(R.id.idBlackTheme);
         if (blackTheme != null){
             blackTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -30,26 +30,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCustomization(View view) {
-
         setContentView(R.layout.activity_customization);
-
     }
 
 
     public void onClickBackMainActivity(View view) {
-
         setContentView(R.layout.activity_main);
     }
 
     public void onClickBackCustomizeActivity(View view) {
-
         setContentView(R.layout.activity_customization);
-
     }
 
     public void onClickEditTown(View view) {
-
         setContentView(R.layout.avtivity_choice_town);
-
     }
 }
