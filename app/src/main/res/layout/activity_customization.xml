@@ -38,11 +38,11 @@
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:layout_gravity=""
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="36dp"
         android:text="@string/showAddParameters"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTown" />
 
@@ -72,26 +72,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/windSpeed"
         android:layout_width="158dp"
         android:layout_height="34dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:text="@string/windSpeed"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staticTown3" />
+        app:layout_constraintTop_toBottomOf="@+id/staticTown3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/pressure"
         android:layout_width="158dp"
         android:layout_height="34dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="304dp"
         android:text="@string/namePressure"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/windSpeed"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button"

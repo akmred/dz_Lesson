@@ -6,19 +6,30 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Switch blackTheme;
+    CheckBox pressure, windSpeed;
     public static final boolean isDebug = true;
     public final String TAG = "MyApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            boolean noDataPressure = savedInstanceState.getBoolean("noDataPressure");
+            ;
+            // если данные есть, то поолучим
+            if (noDataPressure)
+                setContentView(R.layout.activity_main);
+            else setContentView(R.layout.activity_customization);
+        }else   setContentView(R.layout.activity_main);
+        initVariables();
 
         String instanceState;
 
@@ -28,11 +39,14 @@ public class MainActivity extends AppCompatActivity {
             instanceState = "Повторный запуск!";
         }
 
+        if (blackTheme != null) {
+            final MainBlackTheme blackThemeClass = MainBlackTheme.getBlackTheme();
+            blackTheme.setChecked(blackThemeClass.getIsBlackTheme());
+        }
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()",
                 Toast.LENGTH_SHORT).show();
         MyLogger("onCreate");
 
-        blackTheme = findViewById(R.id.idBlackTheme);
         if (blackTheme != null) {
             blackTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -43,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    // Инициализация переменных
+    private void initVariables() {
+        blackTheme = findViewById(R.id.idBlackTheme);
+        pressure =  findViewById(R.id.pressure);
+        windSpeed =  findViewById(R.id.windSpeed);
     }
 
     @Override
@@ -57,6 +78,15 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(saveInstanceState);
         Toast.makeText(getApplicationContext(), "Повторный запуск!! - onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
         MyLogger("onRestoreInstanceState");
+
+        boolean noDataPressure = saveInstanceState.getBoolean("noDataPressure");;
+        // если данные есть, то поолучим
+       if (!noDataPressure) {
+           boolean isPressure = saveInstanceState.getBoolean("pressure");
+           boolean isWindSpeed = saveInstanceState.getBoolean("windSpeed");
+           pressure.setChecked(isPressure);
+           windSpeed.setChecked(isWindSpeed);
+       }
     }
 
     @Override
@@ -78,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(saveInstanceState);
         Toast.makeText(getApplicationContext(), "onSaveInstanceState()", Toast.LENGTH_SHORT).show();
         MyLogger("onSaveInstanceState");
+
+        initVariables();
+        if (pressure != null){
+            saveInstanceState.putBoolean("pressure", pressure.isChecked());
+            saveInstanceState.putBoolean("windSpeed", windSpeed.isChecked());
+            saveInstanceState.putBoolean("noDataPressure", false);
+        }
+        else saveInstanceState.putBoolean("noDataPressure", true);
     }
 
     @Override
