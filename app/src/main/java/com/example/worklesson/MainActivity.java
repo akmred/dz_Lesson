@@ -1,35 +1,42 @@
 package com.example.worklesson;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowId;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Switch blackTheme;
-    CheckBox pressure, windSpeed;
     public static final boolean isDebug = true;
     public final String TAG = "MyApp";
+    private Button buttonStartCustomization;
+    static final String DATA_KEY_Town1 = "Data_key_town1";
+    static final String DATA_KEY_Town2 = "Data_key_town2";
+    static final String DATA_KEY_PRESSURE = "Data_key_pressure";
+    static final String DATA_KEY_WINDSPEED = "Data_key_windspeed";
+    TextView nameTown1View, nameTown2View, windSpeed1Name, windSpeed1Value,
+                windSpeed2Name, windSpeed2Value, pressure1Name, pressure1Value,
+                pressure2Name, pressure2Value;
+    private int activity_customization_request_cod = 1234;
+    Boolean isCheckedWindSpeed, isCheckedPressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            boolean noDataPressure = savedInstanceState.getBoolean("noDataPressure");
-            ;
-            // если данные есть, то поолучим
-            if (noDataPressure)
-                setContentView(R.layout.activity_main);
-            else setContentView(R.layout.activity_customization);
-        }else   setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         initVariables();
+        setOnStartActivityCustomizationButton();
+        setVisibleCheckedBoxes(false, false);
 
         String instanceState;
 
@@ -39,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
             instanceState = "Повторный запуск!";
         }
 
-        if (blackTheme != null) {
-            final MainBlackTheme blackThemeClass = MainBlackTheme.getBlackTheme();
-            blackTheme.setChecked(blackThemeClass.getIsBlackTheme());
-        }
         Toast.makeText(getApplicationContext(), instanceState + " - onCreate()",
                 Toast.LENGTH_SHORT).show();
         MyLogger("onCreate");
@@ -59,11 +62,70 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setOnStartActivityCustomizationButton() {
+        buttonStartCustomization.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CustomizationActivity.class);
+                intent.putExtra(DATA_KEY_Town1,  nameTown1View.getText().toString());
+                intent.putExtra(DATA_KEY_Town2, nameTown2View.getText().toString());
+                intent.putExtra(DATA_KEY_WINDSPEED, isCheckedWindSpeed);
+                intent.putExtra(DATA_KEY_PRESSURE,  isCheckedPressure);
+                startActivityForResult(intent, activity_customization_request_cod);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null && requestCode == activity_customization_request_cod){
+            String text = data.getStringExtra(CustomizationActivity.DATA_KEY_TOWN1_CUSTOMIZATION);
+            nameTown1View.setText(text);
+            text = data.getStringExtra(CustomizationActivity.DATA_KEY_TOWN2_CUSTOMIZATION);
+            nameTown2View.setText(text);
+            Boolean isCheckedPressure = data.getBooleanExtra(
+                    CustomizationActivity.DATA_KEY_PRESSURE, false);
+            Boolean isCheckedWindSpeed = data.getBooleanExtra(
+                    CustomizationActivity.DATA_KEY_WINDSPEED, false);
+
+            setVisibleCheckedBoxes(isCheckedPressure, isCheckedWindSpeed);
+        }
+    }
+
+    private void setVisibleCheckedBoxes(Boolean isCheckedPressure, Boolean isCheckedWindSpeed) {
+        int isChecked = (isCheckedWindSpeed) ? View.VISIBLE : View.INVISIBLE;
+        windSpeed1Name.setVisibility(isChecked);
+        windSpeed1Value.setVisibility(isChecked);
+        windSpeed2Name.setVisibility(isChecked);
+        windSpeed2Value.setVisibility(isChecked);
+
+        isChecked = (isCheckedPressure) ? View.VISIBLE : View.INVISIBLE;
+        pressure1Name.setVisibility(isChecked);
+        pressure1Value.setVisibility(isChecked);
+        pressure2Name.setVisibility(isChecked);
+        pressure2Value.setVisibility(isChecked);
+
+        this.isCheckedPressure = isCheckedPressure;
+        this.isCheckedWindSpeed = isCheckedWindSpeed;
+    }
+
     // Инициализация переменных
     private void initVariables() {
         blackTheme = findViewById(R.id.idBlackTheme);
-        pressure =  findViewById(R.id.pressure);
-        windSpeed =  findViewById(R.id.windSpeed);
+        buttonStartCustomization = findViewById(R.id.idButtonStartCustomization);
+        nameTown1View = findViewById(R.id.idTown1);
+        nameTown2View = findViewById(R.id.idTown2);
+        windSpeed1Name = findViewById(R.id.idNameWindSpeed1);
+        windSpeed1Value = findViewById(R.id.idWindSpeed1);
+        windSpeed2Name = findViewById(R.id.idNameWindSpeed2);
+        windSpeed2Value = findViewById(R.id.idWindSpeed2);
+
+        pressure1Name = findViewById(R.id.idNamePressure1);
+        pressure1Value = findViewById(R.id.idPressure1);
+        pressure2Name = findViewById(R.id.idNamePressure2);
+        pressure2Value = findViewById(R.id.idPressure2);
+
     }
 
     @Override
@@ -78,15 +140,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(saveInstanceState);
         Toast.makeText(getApplicationContext(), "Повторный запуск!! - onRestoreInstanceState()", Toast.LENGTH_SHORT).show();
         MyLogger("onRestoreInstanceState");
-
-        boolean noDataPressure = saveInstanceState.getBoolean("noDataPressure");;
-        // если данные есть, то поолучим
-       if (!noDataPressure) {
-           boolean isPressure = saveInstanceState.getBoolean("pressure");
-           boolean isWindSpeed = saveInstanceState.getBoolean("windSpeed");
-           pressure.setChecked(isPressure);
-           windSpeed.setChecked(isWindSpeed);
-       }
     }
 
     @Override
@@ -110,12 +163,6 @@ public class MainActivity extends AppCompatActivity {
         MyLogger("onSaveInstanceState");
 
         initVariables();
-        if (pressure != null){
-            saveInstanceState.putBoolean("pressure", pressure.isChecked());
-            saveInstanceState.putBoolean("windSpeed", windSpeed.isChecked());
-            saveInstanceState.putBoolean("noDataPressure", false);
-        }
-        else saveInstanceState.putBoolean("noDataPressure", true);
     }
 
     @Override
@@ -141,18 +188,6 @@ public class MainActivity extends AppCompatActivity {
 
                              public void onClickCustomization(View view) {
         setContentView(R.layout.activity_customization);
-    }
-
-    public void onClickBackMainActivity(View view) {
-        setContentView(R.layout.activity_main);
-    }
-
-    public void onClickBackCustomizeActivity(View view) {
-        setContentView(R.layout.activity_customization);
-    }
-
-    public void onClickEditTown(View view) {
-        setContentView(R.layout.avtivity_choice_town);
     }
 
     public void MyLogger(String statement) {

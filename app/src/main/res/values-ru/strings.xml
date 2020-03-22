@@ -16,4 +16,7 @@
     <string name="nameBack">Назад</string>
     <string name="nameChoiceTheTown">Выберите город:</string>
     <string name="nameCustomization">Настройка</string>
+    <string name="valueWindSpeed">41</string>
+    <string name="valuePressure">55</string>
+    <string name="editTownValue">Город</string>
 </resources>

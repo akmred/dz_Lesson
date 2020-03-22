@@ -19,10 +19,9 @@
             android:layout_marginTop="10dp">
 
             <Button
-                android:id="@+id/idButtonCust"
+                android:id="@+id/idButtonStartCustomization"
                 android:layout_weight="1"
                 android:layout_height="50dp"
-                android:onClick="onClickCustomization"
                 android:text="@string/nameCustomization"
                 android:layout_marginLeft="10dp"
                 android:layout_width="50dp">
@@ -63,17 +62,73 @@
 
                 <TextView
                     android:id="@+id/idTemp1"
-                    android:layout_width="82dp"
-                    android:layout_height="59dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
                     android:text="@string/temp1"
                     android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="20dp" />
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idNameWindSpeed1"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="0dp"
+                android:text="@string/windSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idWindSpeed1"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/valueWindSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idNamePressure1"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="1dp"
+                android:text="@string/namePressure"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idPressure1"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/valuePressure"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -82,10 +137,10 @@
 
             <TextView
                 android:id="@+id/idTown2"
-                android:layout_width="241dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="15dp"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/town2"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -93,13 +148,69 @@
             <TextView
                 android:id="@+id/idTemp2"
                 android:layout_width="82dp"
-                android:layout_height="59dp"
-                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/temp2"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idNameWindSpeed2"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="0dp"
+                android:text="@string/windSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idWindSpeed2"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/valueWindSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idNamePressure2"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="1dp"
+                android:text="@string/namePressure"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idPressure2"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1dp"
+                android:text="@string/valuePressure"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
