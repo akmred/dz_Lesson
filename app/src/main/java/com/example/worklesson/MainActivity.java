@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         MyLogger("onDestroy");
     }
 
-                             public void onClickCustomization(View view) {
+    public void onClickCustomization(View view) {
         setContentView(R.layout.activity_customization);
     }
 

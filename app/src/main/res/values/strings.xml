@@ -19,4 +19,5 @@
     <string name="valueWindSpeed">41</string>
     <string name="valuePressure">55</string>
     <string name="editTownValue">Город</string>
+    <string name="empty_list">Empty list</string>
 </resources>
