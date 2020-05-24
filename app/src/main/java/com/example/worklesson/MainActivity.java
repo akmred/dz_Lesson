@@ -11,6 +11,7 @@ import android.view.WindowId;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     TextView nameTown1View, nameTown2View, windSpeed1Name, windSpeed1Value,
                 windSpeed2Name, windSpeed2Value, pressure1Name, pressure1Value,
                 pressure2Name, pressure2Value;
+    LinearLayout windSpeed1Lineal, pressuer1Linear,
+                    windSpeed2Lineal, pressuer2Linear;
     private int activity_customization_request_cod = 1234;
     Boolean isCheckedWindSpeed, isCheckedPressure;
 
@@ -94,17 +97,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setVisibleCheckedBoxes(Boolean isCheckedPressure, Boolean isCheckedWindSpeed) {
-        int isChecked = (isCheckedWindSpeed) ? View.VISIBLE : View.INVISIBLE;
-        windSpeed1Name.setVisibility(isChecked);
-        windSpeed1Value.setVisibility(isChecked);
-        windSpeed2Name.setVisibility(isChecked);
-        windSpeed2Value.setVisibility(isChecked);
+        int isChecked = (isCheckedWindSpeed) ? View.VISIBLE : View.GONE;
+//        windSpeed1Name.setVisibility(isChecked);
+//        windSpeed1Value.setVisibility(isChecked);
+//        windSpeed2Name.setVisibility(isChecked);
+//        windSpeed2Value.setVisibility(isChecked);
+        // todo wind speed
+        windSpeed1Lineal.setVisibility(isChecked);
+        windSpeed2Lineal.setVisibility(isChecked);
 
-        isChecked = (isCheckedPressure) ? View.VISIBLE : View.INVISIBLE;
-        pressure1Name.setVisibility(isChecked);
-        pressure1Value.setVisibility(isChecked);
-        pressure2Name.setVisibility(isChecked);
-        pressure2Value.setVisibility(isChecked);
+        isChecked = (isCheckedPressure) ? View.VISIBLE : View.GONE;
+//        pressure1Name.setVisibility(isChecked);
+//        pressure1Value.setVisibility(isChecked);
+//        pressure2Name.setVisibility(isChecked);
+//        pressure2Value.setVisibility(isChecked);
+
+        pressuer1Linear.setVisibility(isChecked);
+        pressuer2Linear.setVisibility(isChecked);
 
         this.isCheckedPressure = isCheckedPressure;
         this.isCheckedWindSpeed = isCheckedWindSpeed;
@@ -116,15 +125,21 @@ public class MainActivity extends AppCompatActivity {
         buttonStartCustomization = findViewById(R.id.idButtonStartCustomization);
         nameTown1View = findViewById(R.id.idTown1);
         nameTown2View = findViewById(R.id.idTown2);
-        windSpeed1Name = findViewById(R.id.idNameWindSpeed1);
-        windSpeed1Value = findViewById(R.id.idWindSpeed1);
-        windSpeed2Name = findViewById(R.id.idNameWindSpeed2);
-        windSpeed2Value = findViewById(R.id.idWindSpeed2);
 
-        pressure1Name = findViewById(R.id.idNamePressure1);
-        pressure1Value = findViewById(R.id.idPressure1);
-        pressure2Name = findViewById(R.id.idNamePressure2);
-        pressure2Value = findViewById(R.id.idPressure2);
+        windSpeed1Lineal = findViewById(R.id.idWindSpeed1Linear);
+        pressuer1Linear = findViewById(R.id.idPressure1Linear);
+        windSpeed2Lineal = findViewById(R.id.idWindSpeed2Linear);
+        pressuer2Linear = findViewById(R.id.idPressure2Linear);
+
+//        windSpeed1Name = findViewById(R.id.idNameWindSpeed1);
+//        windSpeed1Value = findViewById(R.id.idWindSpeed1);
+//        windSpeed2Name = findViewById(R.id.idNameWindSpeed2);
+//        windSpeed2Value = findViewById(R.id.idWindSpeed2);
+
+//        pressure1Name = findViewById(R.id.idNamePressure1);
+//        pressure1Value = findViewById(R.id.idPressure1);
+//        pressure2Name = findViewById(R.id.idNamePressure2);
+//        pressure2Value = findViewById(R.id.idPressure2);
 
     }
 

@@ -9,6 +9,7 @@
     <string name="temp2">+20</string>
     <string name="nameWeather">Погода:</string>
     <string name="editTown">Изменить город:</string>
+    <string name="TextTown">Город:</string>
     <string name="showAddParameters">Показывать:</string>
     <string name="windSpeed">Скорость ветра</string>
     <string name="namePressure">Давление</string>
