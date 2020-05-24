@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="14dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginStart="14dp">
+
+      <TextView
+        android:id="@+id/idTown1"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/town1"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+      <TextView
+        android:id="@+id/idTemp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp1"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idTown1"
+        app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idWindSpeed1Linear"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idNameWindSpeed1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="@string/windSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/idTown1"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/idWindSpeed1"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:text="@string/valueWindSpeed"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/idNameWindSpeed1"
+                app:layout_constraintTop_toBottomOf="@+id/idTemp1" />
+        </LinearLayout>
+
+    <LinearLayout
+     android:layout_width="250dp"
+     android:layout_height="wrap_content"
+     android:id="@+id/idPressure1Linear"
+     android:orientation="horizontal"
+     android:layout_marginLeft="14dp"
+     android:layout_marginTop="1dp"
+     android:layout_marginStart="14dp">
+      <TextView
+        android:id="@+id/idNamePressure1"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/namePressure"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/idNameWindSpeed1"
+        tools:layout_editor_absoluteX="16dp" />
+      <TextView
+        android:id="@+id/idPressure1"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:text="@string/valuePressure"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idNamePressure1"
+        app:layout_constraintTop_toBottomOf="@+id/idWindSpeed1" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+     android:layout_width="350dp"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:layout_marginLeft="14dp"
+     android:layout_marginTop="1dp"
+     android:layout_marginStart="14dp">
+       <TextView
+        android:id="@+id/idTown2"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/town2"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/idTown1"
+        tools:layout_editor_absoluteX="14dp" />
+       <TextView
+        android:id="@+id/idTemp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp2"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idTown2"
+        app:layout_constraintTop_toBottomOf="@+id/idTemp1" />
+    </LinearLayout>
+
+    <LinearLayout
+     android:layout_width="250dp"
+     android:layout_height="wrap_content"
+     android:id="@+id/idWindSpeed2Linear"
+     android:orientation="horizontal"
+     android:layout_marginLeft="14dp"
+     android:layout_marginTop="1dp"
+     android:layout_marginStart="14dp">
+      <TextView
+        android:id="@+id/idNameWindSpeed2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/windSpeed"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/idTown2"
+        tools:layout_editor_absoluteX="14dp" />
+      <TextView
+        android:id="@+id/idWindSpeed2"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:text="@string/valueWindSpeed"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idNameWindSpeed2"
+        app:layout_constraintTop_toBottomOf="@+id/idTemp2" />
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/idPressure2Linear"
+    android:orientation="horizontal"
+    android:layout_marginLeft="14dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginStart="14dp">
+      <TextView
+        android:id="@+id/idNamePressure2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="@string/namePressure"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/idNameWindSpeed2"
+        tools:layout_editor_absoluteX="16dp" />
+      <TextView
+        android:id="@+id/idPressure2"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:text="@string/valuePressure"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idNamePressure2"
+        app:layout_constraintTop_toBottomOf="@+id/idWindSpeed2" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

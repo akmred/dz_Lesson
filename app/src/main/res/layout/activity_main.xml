@@ -46,36 +46,13 @@
             android:textSize="15sp" />
 
             <fragment
-               android:id="@+id/fragment_town_temp"
-               android:name="com.example.worklesson.fragment_town_temp1"
+               android:id="@+id/fragment_temp_main"
+               android:name="com.example.worklesson.fragment_temp_main"
                android:layout_width="match_parent"
                android:layout_height="0dp"
                android:layout_weight="1"
                 />
 
-            <fragment
-                android:id="@+id/fragment_town_temp_additionally"
-                android:name="com.example.worklesson.fragment_town_temp_additianally1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
-
-        <fragment
-            android:id="@+id/fragment_town_temp2"
-            android:name="com.example.worklesson.fragment_town_temp2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
-
-        <fragment
-            android:id="@+id/fragment_town_temp_additionally2"
-            android:name="com.example.worklesson.fragment_town_temp_additianally2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
 
         <TextView
             android:layout_width="match_parent"
