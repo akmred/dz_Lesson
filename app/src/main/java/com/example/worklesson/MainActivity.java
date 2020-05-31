@@ -2,6 +2,8 @@ package com.example.worklesson;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     Switch blackTheme;
@@ -32,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                     windSpeed2Lineal, pressuer2Linear;
     private int activity_customization_request_cod = 1234;
     Boolean isCheckedWindSpeed, isCheckedPressure;
+    // Коллекция строка, значение
+    String [] map1_weather_for_days;
+    String [] map2_weather_for_days;
+    private RecyclerView list1ForDays;
+    private RecyclerView list2ForDays;
+
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    void fullListWeather() {
+
+        // for three days map1
+       map1_weather_for_days = new String[] {"01.06.2020", "02.06.2020", "03.06.2020"};
+
+       // for three days map2
+       map2_weather_for_days = new String[] {"01.06.2020", "02.06.2020", "03.06.2020"};;
+
     }
 
     private void setOnStartActivityCustomizationButton() {
@@ -98,19 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setVisibleCheckedBoxes(Boolean isCheckedPressure, Boolean isCheckedWindSpeed) {
         int isChecked = (isCheckedWindSpeed) ? View.VISIBLE : View.GONE;
-//        windSpeed1Name.setVisibility(isChecked);
-//        windSpeed1Value.setVisibility(isChecked);
-//        windSpeed2Name.setVisibility(isChecked);
-//        windSpeed2Value.setVisibility(isChecked);
         // todo wind speed
         windSpeed1Lineal.setVisibility(isChecked);
         windSpeed2Lineal.setVisibility(isChecked);
 
         isChecked = (isCheckedPressure) ? View.VISIBLE : View.GONE;
-//        pressure1Name.setVisibility(isChecked);
-//        pressure1Value.setVisibility(isChecked);
-//        pressure2Name.setVisibility(isChecked);
-//        pressure2Value.setVisibility(isChecked);
 
         pressuer1Linear.setVisibility(isChecked);
         pressuer2Linear.setVisibility(isChecked);
@@ -131,15 +145,23 @@ public class MainActivity extends AppCompatActivity {
         windSpeed2Lineal = findViewById(R.id.idWindSpeed2Linear);
         pressuer2Linear = findViewById(R.id.idPressure2Linear);
 
-//        windSpeed1Name = findViewById(R.id.idNameWindSpeed1);
-//        windSpeed1Value = findViewById(R.id.idWindSpeed1);
-//        windSpeed2Name = findViewById(R.id.idNameWindSpeed2);
-//        windSpeed2Value = findViewById(R.id.idWindSpeed2);
 
-//        pressure1Name = findViewById(R.id.idNamePressure1);
-//        pressure1Value = findViewById(R.id.idPressure1);
-//        pressure2Name = findViewById(R.id.idNamePressure2);
-//        pressure2Value = findViewById(R.id.idPressure2);
+        // Заполняет список погодой на три дня
+        fullListWeather();
+
+        list1ForDays = findViewById(R.id.list1_future_weather);
+        list2ForDays = findViewById(R.id.list2_future_weather);
+
+        RecyclerDataAdapter adapter1 = new RecyclerDataAdapter(map1_weather_for_days, "list1ForDaysWeather");
+        RecyclerDataAdapter adapter2 = new RecyclerDataAdapter(map2_weather_for_days, "list2ForDaysWeather");
+
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(getApplicationContext());
+
+        list1ForDays.setLayoutManager(layoutManager1);
+        list1ForDays.setAdapter(adapter1);
+        list2ForDays.setLayoutManager(layoutManager2);
+        list2ForDays.setAdapter(adapter2);
 
     }
 
