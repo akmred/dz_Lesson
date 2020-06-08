@@ -18,6 +18,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
+
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
     private void setOnStartActivityCustomizationButton() {
         buttonStartCustomization.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CustomizationActivity.class);
-                intent.putExtra(DATA_KEY_Town1,  nameTown1View.getText().toString());
+                intent.putExtra(DATA_KEY_Town1, nameTown1View.getText().toString());
                 intent.putExtra(DATA_KEY_Town2, nameTown2View.getText().toString());
                 intent.putExtra(DATA_KEY_WINDSPEED, isCheckedWindSpeed);
-                intent.putExtra(DATA_KEY_PRESSURE,  isCheckedPressure);
-                startActivityForResult(intent, activity_customization_request_cod);
+                intent.putExtra(DATA_KEY_PRESSURE, isCheckedPressure);
+                MainActivity.this.startActivityForResult(intent, activity_customization_request_cod);
             }
         });
     }

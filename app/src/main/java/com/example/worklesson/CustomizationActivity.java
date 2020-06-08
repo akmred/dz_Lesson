@@ -11,9 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+
 public class CustomizationActivity extends AppCompatActivity {
     TextView nameTown1View, nameTown2View;
-    Button backButton, editTown1Button, editTown2Button;
+    MaterialButton backButton, editTown2Button,editTown1Button;
     CheckBox windSpeed, pressure;
     static final String DATA_KEY_WINDSPEED = "DATA_KEY_WINDSPEED";
     static final String DATA_KEY_PRESSURE = "DATA_KEY_PRESSURE";
